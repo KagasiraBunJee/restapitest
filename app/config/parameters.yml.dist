@@ -18,8 +18,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
-    mcfedr_aws_push.platforms: []
-    mcfedr_aws_push.aws.key: ''
-    mcfedr_aws_push.aws.secret: ''
-    mcfedr_aws_push.aws.region: ''
-    mcfedr_aws_push.topic_arn: ''
+    arns_platforms:    []
+    aws_key:   'some_arns_key'
+    aws_secret:    'some_secret_here'
+    aws_region:    'some_region_here'
+    arn_topic: 'some_arns_topic'

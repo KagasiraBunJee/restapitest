@@ -76,3 +76,11 @@ services:
     apikey_authenticator:
         class:     RestApi\Bundle\Security\ApiKeyAuthenticator
         arguments: ["@api_key_user_provider", "@security.http_utils"]
+        
+mcfedr_aws_push:
+    platforms:  %arns_platforms%
+    topic_arn: %arn_topic%
+    aws:
+        key: %aws_key%
+        secret: %aws_secret%
+        region: %aws_region%
