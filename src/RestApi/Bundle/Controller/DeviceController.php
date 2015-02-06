@@ -3,18 +3,20 @@
 namespace RestApi\Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mcfedr\AwsPushBundle\Controller\ApiController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use RestApi\Bundle\Entity\Device;
-use RestApi\Bundle\Form\DeviceType;
 use Mcfedr\AwsPushBundle\Form\Model\Broadcast;
 use Mcfedr\AwsPushBundle\Form\BroadcastType;
-use Symfony\Component\HttpFoundation\Request;
 use Mcfedr\AwsPushBundle\Exception\PlatformNotConfiguredException;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use RestApi\Bundle\Entity\Device;
+use RestApi\Bundle\Form\DeviceType;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+
 
 /**
  * @Route("/device")
@@ -62,6 +64,7 @@ class DeviceController extends ApiController {
      * )
      * @Route("/notify")
      * @Method("POST")
+     * @Security("has_role('ROLE_MCFEDR_AWS_BROADCAST')")
      */
     public function NotifyAction(Request $request) {
         $broadcast = new Broadcast();

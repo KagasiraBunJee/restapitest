@@ -16,8 +16,6 @@ parameters:
 
     locale:            en
 
-    # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
     mcfedr_aws_push:
         platforms:
             ios: ~
