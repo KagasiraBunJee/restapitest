@@ -13,9 +13,7 @@ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface{
     
     protected $userProvider;
-    
-    const API_KEY_PARAM = 'apiKey';
-    
+        
     public function __construct(ApiKeyUserProvider $userProvider) {
         
         $this->userProvider = $userProvider;
@@ -47,7 +45,7 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface{
     }
 
     public function createToken(Request $request, $providerKey) {
-        $apiKey = $request->query->get(API_KEY_PARAM);
+        $apiKey = $request->query->get('apiKey');
 
         if (!$apiKey) {
             throw new BadCredentialsException('No API key found');
@@ -55,7 +53,7 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface{
 
         return new PreAuthenticatedToken(
             'anon.',
-            API_KEY_PARAM,
+            $apiKey,
             $providerKey
         );
     }

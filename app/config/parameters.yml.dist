@@ -16,12 +16,10 @@ parameters:
 
     locale:            en
 
-    mcfedr_aws_push:
-        platforms:
-            ios: ~
-            android: ~
-        topic_arn: ~
-        aws:
-            key: ~
-            secret: ~
-            region: ~
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+    mcfedr_aws_push.platforms: []
+    mcfedr_aws_push.aws.key: ''
+    mcfedr_aws_push.aws.secret: ''
+    mcfedr_aws_push.aws.region: ''
+    mcfedr_aws_push.topic_arn: ''
