@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use RestApi\Bundle\Entity\Device;
 use RestApi\Bundle\Form\DeviceType;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
