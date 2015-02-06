@@ -20,10 +20,10 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
     mcfedr_aws_push:
         platforms:
-            ios: 'arn:aws:sns'
-            android: 'arn:aws:sns'
-        topic_arn: 'some topic here'
+            ios: ~
+            android: ~
+        topic_arn: ~
         aws:
-            key: 'my key'
-            secret: 'my secret'
-            region: 'my region'
+            key: ~
+            secret: ~
+            region: ~
