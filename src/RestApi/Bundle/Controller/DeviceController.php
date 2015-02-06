@@ -42,12 +42,16 @@ class DeviceController extends ApiController {
         $this->handleJsonForm($form, $request);
 
         $arnKey = $this->get('mcfedr_aws_push.devices')->registerDevice($device->getDeviceId(), $device->getPlatform());
-
         if ($this->container->getParameter('mcfedr_aws_push.topic_arn')) {
             $topicArn = $this->container->getParameter('mcfedr_aws_push.topic_arn');
             $this->get('mcfedr_aws_push.topics')->registerDeviceOnTopic($arnKey, $topicArn);
         }
 
+        $user = $this->getUser();
+        $device->setUser($user);
+        $em->persist($device);
+        $em->flush();
+        
         return new JsonResponse([
             'result' => 'Device has been registered.'
         ]);
@@ -87,5 +91,4 @@ class DeviceController extends ApiController {
             ]);
         }
     }
-
 }

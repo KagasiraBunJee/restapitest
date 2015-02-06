@@ -5,7 +5,6 @@ namespace RestApi\Bundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -185,45 +184,5 @@ class User implements UserInterface, \JsonSerializable
     public function getApiKey()
     {
         return $this->apiKey;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->devices = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add devices
-     *
-     * @param \RestApi\Bundle\Entity\Device $devices
-     * @return User
-     */
-    public function addDevice(\RestApi\Bundle\Entity\Device $devices)
-    {
-        $this->devices[] = $devices;
-
-        return $this;
-    }
-
-    /**
-     * Remove devices
-     *
-     * @param \RestApi\Bundle\Entity\Device $devices
-     */
-    public function removeDevice(\RestApi\Bundle\Entity\Device $devices)
-    {
-        $this->devices->removeElement($devices);
-    }
-
-    /**
-     * Get devices
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDevices()
-    {
-        return $this->devices;
     }
 }
