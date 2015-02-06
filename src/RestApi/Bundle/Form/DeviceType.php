@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserType extends AbstractType
+class DeviceType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,8 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('login')
-            ->add('password')
-            ->add('email')
-            ->add('apiKey')
+            ->add('platform')
+            ->add('deviceId')
         ;
     }
     
@@ -28,7 +26,7 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'RestApi\Bundle\Entity\User'
+            'data_class' => 'RestApi\Bundle\Entity\Device'
         ));
     }
 
@@ -37,6 +35,6 @@ class UserType extends AbstractType
      */
     public function getName()
     {
-        return 'user';
+        return 'device';
     }
 }

@@ -71,3 +71,8 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+services:
+    apikey_authenticator:
+        class:     RestApi\Bundle\Security\ApiKeyAuthenticator
+        arguments: ["@api_key_user_provider", "@security.http_utils"]

@@ -1,0 +1,4 @@
+services:
+    api_key_user_provider:
+        class: RestApi\Bundle\Security\ApiKeyUserProvider
+        arguments: ["@doctrine.orm.entity_manager"]

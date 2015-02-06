@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    public function getLoginByApiKey($apiKey)
+    {
+        $em = $this->getEntityManager();
+        
+        $user = $em->getRepository("RestApiBundle:User")->findOneBy(array('apiKey' => $apiKey));
+        
+        if($user)
+            return $user->getLogin();
+        
+        return null;
+    }
 }
