@@ -64,7 +64,7 @@ class DeviceController extends ApiController {
      * )
      * @Route("/notify")
      * @Method("POST")
-     * @Security("has_role('ROLE_MCFEDR_AWS_BROADCAST')")
+     * @Security("has_role('ROLE_USER')")
      */
     public function NotifyAction(Request $request) {
         $broadcast = new Broadcast();
