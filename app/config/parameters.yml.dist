@@ -18,4 +18,12 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
-    register_api_key: %register_api_key%
+    mcfedr_aws_push:
+        platforms:
+            ios: 'arn:aws:sns'
+            android: 'arn:aws:sns'
+        topic_arn: 'some topic here'
+        aws:
+            key: 'my key'
+            secret: 'my secret'
+            region: 'my region'
